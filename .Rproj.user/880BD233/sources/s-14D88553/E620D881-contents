@@ -5,7 +5,3 @@ library(roxygen2)
 square<-function(x){return(x^2)}
 
 
-
-devtools::install_github("janderson94/Revolution")
-
-

@@ -2,8 +2,6 @@
 \alias{square}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{function to square stuff duh}
-%%  ~~ Function title~~
-}
 \description{
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
