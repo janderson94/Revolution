@@ -14,7 +14,7 @@ Imports:
 	ggplot2,
 	cobs,
 	glmnet,
-	dplyr
+	parallel
 	
 	
 	
