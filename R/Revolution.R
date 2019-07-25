@@ -206,8 +206,3 @@ return(par_out)
 
 
 
-
-
-
-
-
