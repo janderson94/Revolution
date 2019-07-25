@@ -1,12 +1,12 @@
-\name{square}
-\alias{square}
+\name{mode}
+\alias{mode}
 %- Also NEED an '\alias' for EACH other topic documented here.
-\title{function to square stuff duh}
+\title{Get mode of a vector}
 \description{
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
-square(x)
+mode(x)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -45,9 +45,8 @@ square(x)
 ##--	or do  help(data=index)  for the standard data sets.
 
 ## The function is currently defined as
-function (x)
+function (x) 
 {
-    return(x^2)
   }
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the

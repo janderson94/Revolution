@@ -3,6 +3,11 @@
 #perm_df is nGenes x Ypermutations by 1 variable
 #Pvals_col_name is the name of the column in Input_df with pvalues for empirical FDR correction
 #Name is output file name FDR_"name"
+library("ggplot2")
+library("cobs")
+library("glmnet")
+library("parallel")
+
 
 perm.fdr=function(input_df,perm_df,Pvals_col_name,name){
   pvals_index=which(colnames(input_df)==Pvals_col_name)
@@ -67,11 +72,8 @@ perm.fdr=function(input_df,perm_df,Pvals_col_name,name){
 
 
 
-
-
 #Themes for ggplot2
-library(ggplot2)
-new_theme<-theme(axis.text=element_text(size=10)  , axis.title=element_text(size=12,face="bold") , legend.text=element_text(size=16),plot.title=element_text(size=18,hjust=.5),panel.grid.major = element_blank(),axis.line = element_line(colour = "black"),
+new_theme=theme(axis.text=element_text(size=10)  , axis.title=element_text(size=12,face="bold") , legend.text=element_text(size=16),plot.title=element_text(size=18,hjust=.5),panel.grid.major = element_blank(),axis.line = element_line(colour = "black"),
                  panel.grid.minor = element_blank(),
                  panel.border = element_blank(),
                  panel.background = element_blank(),
@@ -82,7 +84,7 @@ new_theme<-theme(axis.text=element_text(size=10)  , axis.title=element_text(size
 
 
 #Mode function
-mode<-function(x){
+mode=function(x){
   tab<-table(x)
   return(names(tab[tab==max(tab)]))
 }
@@ -94,8 +96,7 @@ mode<-function(x){
 
 
 #Parallel age predictions
-library(glmnet)
-library(parallel)
+
 
 #PARALLEL CODE FOR RUNNING IT ON YOUR COMPUTER
 #Better to just run it on HARDAC if you are using many samples, or are building an epigenetic model, but:
@@ -108,7 +109,7 @@ get_z<-function(x){
   return(z)
 }
 
-parallel_predict<-function(age_vector,counts_file,sample_type,no_cores=NULL,alphas){
+parallel_predict=function(age_vector,counts_file,sample_type,no_cores=NULL,alphas){
 
   # Calculate the number of cores if not provided
   if(!is.null(no_cores)){
